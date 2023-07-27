@@ -1,0 +1,64 @@
+@mixin lg($direction, $colors...) {
+    background-image: linear-gradient($direction, $colors);
+}
+
+@mixin backgroundClip {
+    display: inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@mixin atCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// which starts with @ >> called Directives
+
+// 0 to 600px
+// 600px to 900px
+// 900px to 1200px
+
+
+
+
+// @mixin responsive-phone{
+//     @media (max-width : 600px) {
+//         @content;
+//     }
+// }
+// phone  >> max-width  600
+// tabPort >> max-width 900
+// tabLand >> max-width 1200px
+//  defulalt css will apply here >> 1200 to 1800
+// bigScreens >> min-width 1800px
+@mixin reponse($breakpoint){
+    @if $breakpoint == phone {
+        @media (max-width:600px) {
+            @content;
+        }
+    }
+    @if $breakpoint == tabPort {
+        @media (max-width:900px) {
+            @content;
+        }
+    }
+    @if $breakpoint == tabPort {
+        @media (max-width:900px) {
+            @content;
+        }
+    }
+    @if $breakpoint == tabLand {
+        @media (max-width:1200px) {
+            @content;
+        }
+    }
+    @if $breakpoint == bigScreens {
+        @media (min-width:1800px) {
+            @content;
+        }
+    }
+}
+
